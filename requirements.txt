@@ -4,7 +4,7 @@ Flask-RESTful==0.3.7
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
 Flask-SocketIO==4.2.0
-Werkzeug==0.15.1
+Werkzeug==0.15.3
 uWSGI==2.0.18
 Jinja2==2.11.3
 pymysql==0.9.3
