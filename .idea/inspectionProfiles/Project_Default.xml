@@ -1,0 +1,97 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="77">
+            <item index="0" class="java.lang.String" itemvalue="kubernetes" />
+            <item index="1" class="java.lang.String" itemvalue="greenlet" />
+            <item index="2" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="3" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="4" class="java.lang.String" itemvalue="kombu" />
+            <item index="5" class="java.lang.String" itemvalue="pycparser" />
+            <item index="6" class="java.lang.String" itemvalue="redis" />
+            <item index="7" class="java.lang.String" itemvalue="demjson" />
+            <item index="8" class="java.lang.String" itemvalue="pyasn1-modules" />
+            <item index="9" class="java.lang.String" itemvalue="aliyun-python-sdk-core" />
+            <item index="10" class="java.lang.String" itemvalue="certifi" />
+            <item index="11" class="java.lang.String" itemvalue="oauthlib" />
+            <item index="12" class="java.lang.String" itemvalue="django-log-request-id" />
+            <item index="13" class="java.lang.String" itemvalue="vine" />
+            <item index="14" class="java.lang.String" itemvalue="django-celery-beat" />
+            <item index="15" class="java.lang.String" itemvalue="dnspython" />
+            <item index="16" class="java.lang.String" itemvalue="aliyun-python-sdk-alidns" />
+            <item index="17" class="java.lang.String" itemvalue="djangorestframework-jwt" />
+            <item index="18" class="java.lang.String" itemvalue="asgiref" />
+            <item index="19" class="java.lang.String" itemvalue="cryptography" />
+            <item index="20" class="java.lang.String" itemvalue="paramiko" />
+            <item index="21" class="java.lang.String" itemvalue="channels" />
+            <item index="22" class="java.lang.String" itemvalue="django-filter" />
+            <item index="23" class="java.lang.String" itemvalue="aliyun-python-sdk-ecs" />
+            <item index="24" class="java.lang.String" itemvalue="Pint" />
+            <item index="25" class="java.lang.String" itemvalue="PyMySQL" />
+            <item index="26" class="java.lang.String" itemvalue="idna" />
+            <item index="27" class="java.lang.String" itemvalue="PyJWT" />
+            <item index="28" class="java.lang.String" itemvalue="rsa" />
+            <item index="29" class="java.lang.String" itemvalue="python-crontab" />
+            <item index="30" class="java.lang.String" itemvalue="cffi" />
+            <item index="31" class="java.lang.String" itemvalue="pyasn1" />
+            <item index="32" class="java.lang.String" itemvalue="requests" />
+            <item index="33" class="java.lang.String" itemvalue="websocket-client" />
+            <item index="34" class="java.lang.String" itemvalue="sqlparse" />
+            <item index="35" class="java.lang.String" itemvalue="ansible" />
+            <item index="36" class="java.lang.String" itemvalue="jdcal" />
+            <item index="37" class="java.lang.String" itemvalue="requests-oauthlib" />
+            <item index="38" class="java.lang.String" itemvalue="eventlet" />
+            <item index="39" class="java.lang.String" itemvalue="celery" />
+            <item index="40" class="java.lang.String" itemvalue="urllib3" />
+            <item index="41" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="42" class="java.lang.String" itemvalue="pywinrm" />
+            <item index="43" class="java.lang.String" itemvalue="django-cors-headers" />
+            <item index="44" class="java.lang.String" itemvalue="billiard" />
+            <item index="45" class="java.lang.String" itemvalue="six" />
+            <item index="46" class="java.lang.String" itemvalue="pymongo" />
+            <item index="47" class="java.lang.String" itemvalue="django-celery-results" />
+            <item index="48" class="java.lang.String" itemvalue="amqp" />
+            <item index="49" class="java.lang.String" itemvalue="et-xmlfile" />
+            <item index="50" class="java.lang.String" itemvalue="aliyun-python-sdk-domain" />
+            <item index="51" class="java.lang.String" itemvalue="chardet" />
+            <item index="52" class="java.lang.String" itemvalue="jmespath" />
+            <item index="53" class="java.lang.String" itemvalue="channels-redis" />
+            <item index="54" class="java.lang.String" itemvalue="Django" />
+            <item index="55" class="java.lang.String" itemvalue="django-redis" />
+            <item index="56" class="java.lang.String" itemvalue="cachetools" />
+            <item index="57" class="java.lang.String" itemvalue="django-timezone-field" />
+            <item index="58" class="java.lang.String" itemvalue="python-decouple" />
+            <item index="59" class="java.lang.String" itemvalue="pytz" />
+            <item index="60" class="java.lang.String" itemvalue="google-auth" />
+            <item index="61" class="java.lang.String" itemvalue="openpyxl" />
+            <item index="62" class="java.lang.String" itemvalue="alembic" />
+            <item index="63" class="java.lang.String" itemvalue="Flask-Script" />
+            <item index="64" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="65" class="java.lang.String" itemvalue="aniso8601" />
+            <item index="66" class="java.lang.String" itemvalue="SQLAlchemy" />
+            <item index="67" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="68" class="java.lang.String" itemvalue="python-editor" />
+            <item index="69" class="java.lang.String" itemvalue="click" />
+            <item index="70" class="java.lang.String" itemvalue="Flask-SQLAlchemy" />
+            <item index="71" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="72" class="java.lang.String" itemvalue="Flask-Migrate" />
+            <item index="73" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="74" class="java.lang.String" itemvalue="Mako" />
+            <item index="75" class="java.lang.String" itemvalue="Flask-RESTful" />
+            <item index="76" class="java.lang.String" itemvalue="Flask" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
