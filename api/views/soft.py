@@ -102,15 +102,16 @@ class SoftView(Resource):
                     api_abort(httpcode=400, errcode=4025, key=f"正在安装{softobj2.soft_name},请稍后重试")
                 if installtype == "rpm":
                     api_abort(httpcode=400, errcode=4025, key=f"暂时不支持极速安装")
-                    res = 0
-                    # res = os.system(f"/bin/bash {self.shellpath}/{soft_name}_rpm.sh {soft_ver}")
+                    # res = 0
+                    Soft.update(nid, {"is_install": 2})
+                    res = os.system(f"/bin/bash {self.shellpath}/{soft_name}_rpm.sh {soft_ver}")
                 elif installtype == "bash":
                     Soft.update(nid, {"is_install": 2})
                     res = os.system(f"/bin/bash {self.shellpath}/{soft_name}.sh {soft_ver}")
                     # res = execShell(f"bash {self.shellpath}/{soft_name}.sh {soft_ver}")
-                if res == 1:
-                    Soft.update(nid, {"is_install": 0})
-                    api_abort(httpcode=400, errcode=4025, key=f"{soft_name}安装失败")
+                    if res == 1:
+                        Soft.update(nid, {"is_install": 0})
+                        api_abort(httpcode=400, errcode=4025, key=f"{soft_name}安装失败")
                 Soft.update(nid, {"is_install": 1})
                 soft_dict = soft_obj.to_json()
                 res = BaseResponse()

@@ -20,9 +20,9 @@ class HomeView(Resource):
         data = {}
         if info == "loadavg":
             loadavg = os.getloadavg()
-            data['one'] = float(loadavg[0])
-            data['five'] = float(loadavg[1])
-            data['fifteen'] = float(loadavg[2])
+            data['one'] = round(loadavg[0], 2)
+            data['five'] = round(loadavg[1], 2)
+            data['fifteen'] = round(loadavg[2], 2)
         elif info == "sysinfo":
             data['cputype'] = execShell("cat /proc/cpuinfo |grep 'model name'").split(':')[-1].strip()
             data['cpunum'] = psutil.cpu_count()
@@ -51,8 +51,10 @@ class HomeView(Resource):
             net_in = {}
             net_out = {}
             for key in key_info:
-                net_in.setdefault(key, f"{format((now_recv.get(key) - old_recv.get(key)) / 1024, '0.2f')} Kb/s")  # 每秒接收速率
-                net_out.setdefault(key, f"{format((now_sent.get(key) - old_sent.get(key)) / 1024, '0.2f')} Kb/s")  # 每秒发送速率
+                net_in.setdefault(key,
+                                  f"{format((now_recv.get(key) - old_recv.get(key)) / 1024, '0.2f')} Kb/s")  # 每秒接收速率
+                net_out.setdefault(key,
+                                   f"{format((now_sent.get(key) - old_sent.get(key)) / 1024, '0.2f')} Kb/s")  # 每秒发送速率
             data['net_in'] = net_in
             data['net_out'] = net_out
         res = BaseResponse()
