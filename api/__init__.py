@@ -30,9 +30,9 @@ from .views.file import file_bp
 
 def create_app():
     app = Flask(__name__)
-    #debug
-    app.config.from_object("api.config.DevConfig")
-    # app.config.from_object("api.config.ProConfig")
+    # debug
+    # app.config.from_object("api.config.DevConfig")
+    app.config.from_object("api.config.ProConfig")
 
     @app.before_request
     def before_request():
