@@ -103,11 +103,9 @@ class SoftView(Resource):
                 if softobj2:
                     api_abort(httpcode=400, errcode=4025, key=f"正在安装{softobj2.soft_name},请稍后重试")
                 if installtype == "rpm":
-                    api_abort(httpcode=400, errcode=4025, key=f"暂时不支持极速安装")
-                    # res = 0
-                    # Soft.update(nid, {"is_install": 2})
-                    # execShell(nid, f"/bin/bash {self.shellpath}/{soft_name}_rpm.sh {soft_ver}")
-                    # res = os.system()
+                    # api_abort(httpcode=400, errcode=4025, key=f"暂时不支持极速安装")
+                    Soft.update(nid, {"is_install": 2})
+                    execShell(nid, f"/bin/bash {self.shellpath}/{soft_name}{soft_ver}_rpm.sh")
                 elif installtype == "bash":
                     Soft.update(nid, {"is_install": 2})
                     execShell(nid, f"/bin/bash {self.shellpath}/{soft_name}.sh {soft_ver}")
@@ -152,6 +150,7 @@ def diyAsync(f):
 
 @diyAsync
 def execShell(nid, shellStr):
+    from api.models import Soft
     res = os.system(shellStr)
     if res == 1:
         Soft.update(nid, {"is_install": 3})

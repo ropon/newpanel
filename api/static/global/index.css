@@ -1,18 +1,23 @@
-*{
+* {
     padding: 0;
-    margin : 0;
+    margin: 0;
 }
-body,html{
+
+body,
+html {
     font-family: PingFangSC-Light;
     color: #333;
 }
-ul{
+
+ul {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.container{
+
+.container {
     width: 1200px;
     margin: 0 auto;
 }
