@@ -11,6 +11,8 @@ from api.models import Soft
 from api.utils.response import BaseResponse, api_abort
 from api.utils.config import per_page
 from api.utils.tools import execShell
+from threading import Thread
+
 # from flask_socketio import send, emit
 # from api import socketio
 
@@ -97,22 +99,23 @@ class SoftView(Resource):
                 softobj = Soft.query.filter_by(**{'soft_name': soft_name, 'is_install': 1}).first()
                 if softobj:
                     api_abort(httpcode=400, errcode=4025, key=f"已安装{softobj.soft_name},若要安装新版请先卸载")
-                softobj2 = Soft.query.filter_by(**{'is_install': 2}).first()
+                softobj2 = Soft.query.filter_by(**{'soft_name': soft_name, 'is_install': 2}).first()
                 if softobj2:
                     api_abort(httpcode=400, errcode=4025, key=f"正在安装{softobj2.soft_name},请稍后重试")
                 if installtype == "rpm":
                     api_abort(httpcode=400, errcode=4025, key=f"暂时不支持极速安装")
                     # res = 0
-                    Soft.update(nid, {"is_install": 2})
-                    res = os.system(f"/bin/bash {self.shellpath}/{soft_name}_rpm.sh {soft_ver}")
+                    # Soft.update(nid, {"is_install": 2})
+                    # execShell(nid, f"/bin/bash {self.shellpath}/{soft_name}_rpm.sh {soft_ver}")
+                    # res = os.system()
                 elif installtype == "bash":
                     Soft.update(nid, {"is_install": 2})
-                    res = os.system(f"/bin/bash {self.shellpath}/{soft_name}.sh {soft_ver}")
+                    execShell(nid, f"/bin/bash {self.shellpath}/{soft_name}.sh {soft_ver}")
                     # res = execShell(f"bash {self.shellpath}/{soft_name}.sh {soft_ver}")
-                    if res == 1:
-                        Soft.update(nid, {"is_install": 0})
-                        api_abort(httpcode=400, errcode=4025, key=f"{soft_name}安装失败")
-                Soft.update(nid, {"is_install": 1})
+                    # if res == 1:
+                    #     Soft.update(nid, {"is_install": 0})
+                    #     api_abort(httpcode=400, errcode=4025, key=f"{soft_name}安装失败")
+                # Soft.update(nid, {"is_install": 1})
                 soft_dict = soft_obj.to_json()
                 res = BaseResponse()
                 res.data = soft_dict
@@ -137,6 +140,23 @@ class SoftView(Resource):
     # @socketio.on('disconnect', namespace='/chat')
     # def test_disconnect(self):
     #     print('Client disconnected')
+
+
+def diyAsync(f):
+    def wrapper(*args, **kwargs):
+        thr = Thread(target=f, args=args, kwargs=kwargs)
+        thr.start()
+
+    return wrapper
+
+
+@diyAsync
+def execShell(nid, shellStr):
+    res = os.system(shellStr)
+    if res == 1:
+        Soft.update(nid, {"is_install": 3})
+    else:
+        Soft.update(nid, {"is_install": 1})
 
 
 api.add_resource(SoftView, "/soft", endpoint="soft")

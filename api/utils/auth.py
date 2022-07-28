@@ -8,6 +8,7 @@ import time, datetime, hashlib
 from flask import request
 from api.models import User, Token
 
+
 def verify_token():
     username = request.headers.get("username")
     otime = request.headers.get("otime", type=int)
@@ -27,7 +28,7 @@ def verify_token():
         delta = datetime.datetime.now() - token_obj.created
         state = delta < datetime.timedelta(weeks=1)
         if not state:
-        # token失效 认证超时
+            # token失效 认证超时
             return dict(errcode=4024)
         obj = hashlib.md5()
         sign = (username + str(otime) + token_obj.key).encode('utf-8')
